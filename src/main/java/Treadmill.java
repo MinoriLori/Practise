@@ -1,4 +1,4 @@
-class Treadmill extends Obstacles{
+class Treadmill {
     int length;
 
     public Treadmill(int length){
