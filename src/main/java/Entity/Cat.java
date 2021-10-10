@@ -1,10 +1,16 @@
-class Cat implements Truck{
+package Entity;
+
+import Entity.Truck;
+import obstacles.Treadmill;
+import obstacles.Wall;
+
+public class Cat implements Truck {
 
     private final int limitation_run = 200, limitation_height = 200;
 
     @Override
-    public boolean jump(Wall wall) {
-        if (limitation_height > wall.getHeight()){
+    public boolean jump(int height) {
+        if (limitation_height > height){
             System.out.println("Кот прыгает");
             return true;
         } else {
@@ -14,9 +20,9 @@ class Cat implements Truck{
     }
 
     @Override
-    public boolean run(Treadmill treadmill) {
-        if (treadmill.getLength() > limitation_run){
-            System.out.println("Кот бежит" + treadmill.getLength());
+    public boolean run(int lenght) {
+        if (limitation_run > lenght ){
+            System.out.println("Кот бежит" + lenght + "метров");
             return false;
         }
         else {

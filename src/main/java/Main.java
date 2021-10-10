@@ -1,3 +1,11 @@
+import Entity.Cat;
+import Entity.Human;
+import Entity.Robot;
+import Entity.Truck;
+import obstacles.Obstacle;
+import obstacles.Treadmill;
+import obstacles.Wall;
+
 public class Main {
     public static void main(String[] args) {
         Truck participants[] = {
@@ -6,38 +14,27 @@ public class Main {
                 new Human()
         };
 
-        Wall []walls = {
+        Wall[]walls = {
                 new Wall(100),
                 new Wall(100),
                 new Wall(100),
         };
 
-        Treadmill []treadmill = {
+        Treadmill[]treadmill = {
                new Treadmill(100),
                new Treadmill(100),
                new Treadmill(100),
 
         };
 
-        passObstacles(participants,walls);
+        getScore(walls,participants);
+
     }
 
-    static void passObstacles(Truck trucks[],Treadmill[]treadmills){
-        for (Truck truck : trucks){
-            for (Treadmill treadmill: treadmills ){
-                if (truck.run(treadmill)){
-                    continue;
-                }
-            }
-        }
-    }
-
-    static void passObstacles(Truck trucks[],Wall[]walls){
-        for (Truck truck : trucks){
-            for (Wall wall: walls){
-                if (truck.jump(wall)){
-                    continue;
-                }
+    static void getScore(Obstacle [] obstacle, Truck [] truck){
+        for (Obstacle obstacle1 : obstacle){
+            for ( Truck truck1 : truck){
+                if (!obstacle1.action(truck1)) continue;
             }
         }
     }
